@@ -1,0 +1,286 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body { 
+            scroll-behavior: smooth; 
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 25%, #6b48ff 50%, #00ddeb 75%, #f0f4f8 100%);
+            min-height: 100vh;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+        nav { 
+            background: linear-gradient(90deg, #343a40 0%, #495057 100%); 
+            position: fixed; 
+            top: 0; 
+            left: 0; 
+            right: 0; 
+            z-index: 1000; 
+        }
+        nav a { 
+            color: white; 
+            transition: color 0.3s ease; 
+        }
+        nav a:hover { 
+            color: #00ddeb; 
+        }
+        section { 
+            padding: 100px 20px; 
+            margin: 0 auto; 
+            max-width: 1300px; 
+        }
+        footer { 
+            background-color: #343a40; 
+            color: white; 
+            padding: 10px 0; 
+        }
+
+        /* Skills Section - Unique Cosmic Theme */
+        #skills {
+            background: linear-gradient(to bottom, #0d1b2a, #1b263b);
+            border-radius: 25px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+        }
+        #skills .skill-card {
+            background: linear-gradient(145deg, #778da9, #415a77);
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: center;
+            position: relative;
+        }
+        #skills .skill-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 25px rgba(0,0,0,0.5);
+        }
+        #skills .skill-card img {
+            border: 3px solid #e0e1dd;
+            border-radius: 50%;
+            padding: 10px;
+            background: #ffffff;
+        }
+
+        /* Projects Section - Modern Tech Theme */
+        #projects {
+            background: linear-gradient(to right, #f8f9fa, #dee2e6);
+            border-radius: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        #projects .project-card {
+            background: #ffffff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            transition: transform 0.3s ease;
+        }
+        #projects .project-card:hover {
+            transform: scale(1.03);
+        }
+        #projects .project-card img {
+            border-bottom: 4px solid #007bff;
+        }
+        #projects .project-card .status {
+            background: #28a745;
+            color: #ffffff;
+            padding: 5px 10px;
+            border-radius: 10px;
+            font-size: 0.85em;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+        #projects .project-card .status.in-progress {
+            background: #ffc107;
+        }
+
+        /* Certifications Section - Elegant Award Theme */
+        #certifications {
+            background: linear-gradient(to bottom, #fff3e0, #ffe0b2);
+            border-radius: 30px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+        }
+        #certifications .cert-card {
+            background: #ffffff;
+            border: 2px solid #fdcb6e;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, border-color 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        #certifications .cert-card:hover {
+            transform: translateY(-5px);
+            border-color: #e17055;
+        }
+        #certifications .cert-card img {
+            border-radius: 5px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark position-fixed" >
+        <div class="container">
+            <a class="navbar-brand" href="{% url 'home' %}">My Portfolio</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="{% url 'home' %}">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#certifications">Certifications</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- About Section -->
+    <section id="about" style="background: linear-gradient(to right, #f0f0f4 0%, #e7d76f 100%); margin-bottom: 20px; border-radius: 15px; box-shadow: 0px 8px 20px rgba(0,0,0,0.15); font-family: Arial, sans-serif; display: flex; align-items: center; gap: 20px; justify-content: space-between;">
+        <div>
+            <h2 style="color: #343a40; margin-bottom: 20px;">About Me</h2>
+            <p style="font-size: 1.2em; line-height: 1.8; color: #252323; text-align: justify; margin-bottom: 20px;">
+                I'm a passionate developer experienced in building responsive and dynamic web applications. I take pride in crafting user-friendly interfaces that work seamlessly across all devices. With a strong foundation in Python, Django, HTML, CSS, and JavaScript, I create efficient and scalable solutions that make an impact.
+            </p>
+        </div>
+        <img src="{% static 'images/myimg.jpg' %}" alt="My Profile" style="width: 180px; height: 180px; border-radius: 50%; box-shadow: 0px 4px 10px rgba(0,0,0,0.2);">
+    </section>
+
+    <!-- Skills Section - Cosmic Theme -->
+    <section id="skills" style="margin-bottom: 20px;">
+        <h2 style="color: #e0e1dd; text-align: center; margin-bottom: 60px; font-size: clamp(2em, 5vw, 3em); font-weight: 700; text-transform: uppercase; letter-spacing: 2px; text-shadow: 2px 2px 5px rgba(0,0,0,0.4);">My Skills</h2>
+        <div class="d-grid gap-4" style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); justify-items: center;">
+            <div class="skill-card">
+                <img src="https://static.vecteezy.com/system/resources/previews/012/697/295/non_2x/3d-python-programming-language-logo-free-png.png" alt="Python Logo" style="width: 100px; height: 100px; margin-bottom: 20px; object-fit: contain;">
+                <h3 style="color: #ffffff; margin-bottom: 15px; font-size: clamp(1.4em, 3.5vw, 1.6em); font-weight: 600;">Python</h3>
+                <p style="color: #e0e1dd; line-height: 1.7; font-size: clamp(0.95em, 2.8vw, 1.1em);">Master of clean, efficient code for web dev and automation.</p>
+            </div>
+            <div class="skill-card">
+                <img src="https://logodix.com/logo/1758841.png" alt="Django Logo" style="width: 100px; height: 100px; margin-bottom: 20px; object-fit: contain;">
+                <h3 style="color: #ffffff; margin-bottom: 15px; font-size: clamp(1.4em, 3.5vw, 1.6em); font-weight: 600;">Django</h3>
+                <p style="color: #e0e1dd; line-height: 1.7; font-size: clamp(0.95em, 2.8vw, 1.1em);">Crafting scalable, secure web apps with finesse.</p>
+            </div>
+            <div class="skill-card">
+                <img src="https://cdn1.iconfinder.com/data/icons/media-agency-malibu-vol-2/128/HTML-JS-CSS-512.png" alt="HTML/CSS Logo" style="width: 100px; height: 100px; margin-bottom: 20px; object-fit: contain;">
+                <h3 style="color: #ffffff; margin-bottom: 15px; font-size: clamp(1.4em, 3.5vw, 1.6em); font-weight: 600;">HTML/CSS</h3>
+                <p style="color: #e0e1dd; line-height: 1.7; font-size: clamp(0.95em, 2.8vw, 1.1em);">Designing stunning, responsive UI masterpieces.</p>
+            </div>
+            <div class="skill-card">
+                <img src="https://pnghq.com/wp-content/uploads/announcing-azure-sql-database-ledger-13994.png" alt="SQL Logo" style="width: 100px; height: 100px; margin-bottom: 20px; object-fit: contain;">
+                <h3 style="color: #ffffff; margin-bottom: 15px; font-size: clamp(1.4em, 3.5vw, 1.6em); font-weight: 600;">SQL</h3>
+                <p style="color: #e0e1dd; line-height: 1.7; font-size: clamp(0.95em, 2.8vw, 1.1em);">Architecting powerful databases with precision.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section - Modern Tech Theme -->
+    <section id="projects" style="margin-bottom: 20px;">
+        <h2 style="color: #343a40; text-align: center; margin-bottom: 60px; font-size: clamp(2em, 5vw, 3em); font-weight: 700; text-transform: uppercase; letter-spacing: 2px;">My Projects</h2>
+        <div class="d-grid gap-4" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); justify-items: center;">
+            <div class="project-card">
+                <div style="height: 200px; overflow: hidden;">
+                    <img src="https://th.bing.com/th/id/OIP.-U1YXbvePfi8e0i6aNswUAAAAA?rs=1&pid=ImgDetMain" alt="Project 1" style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+                <div style="padding: 20px;">
+                    <h3 style="color: #343a40; font-size: 1.5em; margin-bottom: 10px; font-weight: 600;">Product Management and Delivery Status System</h3>
+                    <p style="color: #666; line-height: 1.6; font-size: 1em; margin-bottom: 15px;">Efficiently organizes product information for better inventory control. Monitors delivery status and verifies product deliveries using invoice numbers. Built with HTML, CSS, Python, Django, SQL.</p>
+                    <a href="https://github.com/Sudheerbabu03/transport" style="display: inline-block; padding: 10px 20px; background: #007bff; color: #ffffff; text-decoration: none; border-radius: 5px; font-size: 0.9em; transition: background 0.3s ease;">View Project</a>
+                </div>
+                <div class="status">Live</div>
+            </div>
+            <div class="project-card">
+                <div style="height: 200px; overflow: hidden;">
+                    <img src="https://cdn.mos.cms.futurecdn.net/YtuFTWiWVgPQbuvB4fFfZ5-1200-80.jpg" alt="Project 2" style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+                <div style="padding: 20px;">
+                    <h3 style="color: #343a40; font-size: 1.5em; margin-bottom: 10px; font-weight: 600;">Portfolio Website</h3>
+                    <p style="color: #666; line-height: 1.6; font-size: 1em; margin-bottom: 15px;">A responsive and visually appealing personal portfolio built using HTML, CSS, and Python. Effectively showcases my skills, projects, experience, and certifications.</p>
+                    <a href="" style="display: inline-block; padding: 10px 20px; background: #007bff; color: #ffffff; text-decoration: none; border-radius: 5px; font-size: 0.9em; transition: background 0.3s ease;">View Project</a>
+                </div>
+                <div class="status">Live</div>
+            </div>
+            <div class="project-card">
+                <div style="height: 200px; overflow: hidden;">
+                    <img src="https://nextgeninvent.com/wp-content/uploads/2024/05/Healthcare-Management-System.jpg" alt="Project 3" style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+                <div style="padding: 20px;">
+                    <h3 style="color: #343a40; font-size: 1.5em; margin-bottom: 10px; font-weight: 600;">Hospital Management System</h3>
+                    <p style="color: #666; line-height: 1.6; font-size: 1em; margin-bottom: 15px;">Streamlines patient and hospital data management for enhanced organization. Enables doctors and admins to view and modify appointment schedules. Designed for use in hospitals, clinics, and healthcare institutions.</p>
+                    <a href="#" style="display: inline-block; padding: 10px 20px; background: #007bff; color: #ffffff; text-decoration: none; border-radius: 5px; font-size: 0.9em; transition: background 0.3s ease;">View Project</a>
+                </div>
+                <div class="status in-progress">In Progress</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications Section - Elegant Award Theme -->
+    <section id="certifications" style="margin-bottom: 20px;">
+        <h2 style="color: #343a40; text-align: center; margin-bottom: 60px; font-size: clamp(2em, 5vw, 3em); font-weight: 700; text-transform: uppercase; letter-spacing: 2px;">Certifications</h2>
+        <div class="d-flex flex-wrap gap-4 justify-content-center">
+            <div class="cert-card">
+                <img src="https://kaashiv.com/img/course/m7b04dsz.png" alt="Cert Logo" style="width: 80px; height: 80px; object-fit: cover;">
+                <div>
+                    <h3 style="color: #343a40; font-size: 1.4em; margin-bottom: 8px; font-weight: 600;">Python & SQL Internship</h3>
+                    <p style="color: #555; font-size: 1em; line-height: 1.5;">App Genesis Soft Solutions</p>
+                </div>
+            </div>
+            <div class="cert-card">
+                <img src="https://www.folksit.com/assets/courses/Full_Stack_Python_Online_Training.jpg" alt="Cert Logo" style="width: 80px; height: 80px; object-fit: cover;">
+                <div>
+                    <h3 style="color: #343a40; font-size: 1.4em; margin-bottom: 8px; font-weight: 600;">Python Fullstack Developer</h3>
+                    <p style="color: #555; font-size: 1em; line-height: 1.5;">Jspiders</p>
+                </div>
+            </div>
+            <div class="cert-card">
+                <img src="https://cloud-ascent.com/wp-content/uploads/2023/01/Microsoft-Fundamentals-Certification.png" alt="Cert Logo" style="width: 80px; height: 80px; object-fit: cover;">
+                <div>
+                    <h3 style="color: #343a40; font-size: 1.4em; margin-bottom: 8px; font-weight: 600;">Microsoft Software Development Fundamentals</h3>
+                    <p style="color: #555; font-size: 1em; line-height: Вод1.5;">Microsoft</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" style="background: linear-gradient(to bottom, #e12c8d, #efd52e);margin-bottom: 20px;">
+        <h2 style="color: #343a40; text-align: center; margin-bottom: 40px; font-size: clamp(2em, 5vw, 3em); font-weight: 700; text-transform: uppercase; letter-spacing: 2px;">Contact</h2>
+        <div class="container">
+            <form>
+                <div class="mb-3">
+                    <input type="text" class="form-control" placeholder="Your Name" required>
+                </div>
+                <div class="mb-3">
+                    <input type="email" class="form-control" placeholder="Your Email" required>
+                </div>
+                <div class="mb-3">
+                    <textarea class="form-control" rows="3" placeholder="Your Message" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Send</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="text-center">
+        <div class="container">
+            <p class="mt-1">© 2025 My Portfolio</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
